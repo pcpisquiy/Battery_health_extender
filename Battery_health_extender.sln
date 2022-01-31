@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Battery_health_extender", "Battery_health_extender\Battery_health_extender.csproj", "{7FAADCE4-7360-4104-87C1-79882B763420}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Battery_health_extender_setup", "Battery_health_extender_setup\Battery_health_extender_setup.vdproj", "{979159EC-9D65-4D94-A206-4823D0DC0192}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FAADCE4-7360-4104-87C1-79882B763420}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAADCE4-7360-4104-87C1-79882B763420}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{7FAADCE4-7360-4104-87C1-79882B763420}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAADCE4-7360-4104-87C1-79882B763420}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{979159EC-9D65-4D94-A206-4823D0DC0192}.Debug|Any CPU.ActiveCfg = Debug
+		{979159EC-9D65-4D94-A206-4823D0DC0192}.Release|Any CPU.ActiveCfg = Debug
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {856EC4EF-49BB-4E1F-8D83-5EAA99F5A7E7}
+	EndGlobalSection
+EndGlobal
