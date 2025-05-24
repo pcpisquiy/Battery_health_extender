@@ -35,15 +35,18 @@ namespace Battery_health_extender
             this.lblEstado = new System.Windows.Forms.Label();
             this.TimerCargador = new System.Windows.Forms.Timer(this.components);
             this.pnBorder = new System.Windows.Forms.Panel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.Minimize = new System.Windows.Forms.Button();
             this.Battery_healt_extender = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.restaurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTiempo = new System.Windows.Forms.Label();
             this.progresBarCustom1 = new Battery_health_extender.ProgressCustomBar.ProgresBarCustom();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnimación)).BeginInit();
             this.pnBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +55,7 @@ namespace Battery_health_extender
             this.pbAnimación.Location = new System.Drawing.Point(55, 218);
             this.pbAnimación.Name = "pbAnimación";
             this.pbAnimación.Size = new System.Drawing.Size(706, 360);
-            this.pbAnimación.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAnimación.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAnimación.TabIndex = 2;
             this.pbAnimación.TabStop = false;
             // 
@@ -77,6 +80,7 @@ namespace Battery_health_extender
             // pnBorder
             // 
             this.pnBorder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnBorder.Controls.Add(this.pbLogo);
             this.pnBorder.Controls.Add(this.Minimize);
             this.pnBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnBorder.Location = new System.Drawing.Point(0, 0);
@@ -87,10 +91,21 @@ namespace Battery_health_extender
             this.pnBorder.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnBorder_MouseMove);
             this.pnBorder.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnBorder_MouseUp);
             // 
+            // pbLogo
+            // 
+            this.pbLogo.Image = global::Battery_health_extender.Properties.Resources.LogoSolsis;
+            this.pbLogo.Location = new System.Drawing.Point(-2, -2);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(87, 100);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 7;
+            this.pbLogo.TabStop = false;
+            this.pbLogo.Click += new System.EventHandler(this.pbLogo_Click);
+            // 
             // Minimize
             // 
             this.Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimize.Image = global::Battery_health_extender.Properties.Resources.Minimize;
+            this.Minimize.Image = ((System.Drawing.Image)(resources.GetObject("Minimize.Image")));
             this.Minimize.Location = new System.Drawing.Point(685, -2);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(109, 110);
@@ -136,6 +151,17 @@ namespace Battery_health_extender
             this.cerrarToolStripMenuItem.Text = "Cerrar";
             this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
             // 
+            // lblTiempo
+            // 
+            this.lblTiempo.AutoSize = true;
+            this.lblTiempo.Font = new System.Drawing.Font("Consolas", 15F, System.Drawing.FontStyle.Bold);
+            this.lblTiempo.ForeColor = System.Drawing.Color.White;
+            this.lblTiempo.Location = new System.Drawing.Point(11, 602);
+            this.lblTiempo.Name = "lblTiempo";
+            this.lblTiempo.Size = new System.Drawing.Size(139, 29);
+            this.lblTiempo.TabIndex = 7;
+            this.lblTiempo.Text = "lblTiempo";
+            // 
             // progresBarCustom1
             // 
             this.progresBarCustom1.ChannelColor = System.Drawing.Color.Black;
@@ -143,11 +169,11 @@ namespace Battery_health_extender
             this.progresBarCustom1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progresBarCustom1.ForeBackColor = System.Drawing.Color.Black;
             this.progresBarCustom1.ForeColor = System.Drawing.Color.White;
-            this.progresBarCustom1.Location = new System.Drawing.Point(31, 610);
+            this.progresBarCustom1.Location = new System.Drawing.Point(16, 672);
             this.progresBarCustom1.Name = "progresBarCustom1";
             this.progresBarCustom1.ShowMaximun = true;
             this.progresBarCustom1.ShowValue = Battery_health_extender.ProgressCustomBar.TextPosition.Sliding;
-            this.progresBarCustom1.Size = new System.Drawing.Size(753, 67);
+            this.progresBarCustom1.Size = new System.Drawing.Size(768, 67);
             this.progresBarCustom1.SliderColor = System.Drawing.Color.Red;
             this.progresBarCustom1.SliderHeight = 40;
             this.progresBarCustom1.SymbolAfter = "%";
@@ -159,7 +185,8 @@ namespace Battery_health_extender
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(796, 700);
+            this.ClientSize = new System.Drawing.Size(796, 751);
+            this.Controls.Add(this.lblTiempo);
             this.Controls.Add(this.progresBarCustom1);
             this.Controls.Add(this.pnBorder);
             this.Controls.Add(this.lblEstado);
@@ -174,8 +201,10 @@ namespace Battery_health_extender
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbAnimación)).EndInit();
             this.pnBorder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -191,6 +220,8 @@ namespace Battery_health_extender
         private System.Windows.Forms.ToolStripMenuItem restaurarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Label lblTiempo;
     }
 }
 

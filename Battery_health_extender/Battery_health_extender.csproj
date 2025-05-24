@@ -86,5 +86,14 @@
   <ItemGroup>
     <None Include="RESOURCES\Minimize.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\RESOURCES\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\RESOURCES\LogoSolsis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\RESOURCES\Close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

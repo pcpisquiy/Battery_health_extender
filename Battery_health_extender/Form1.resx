@@ -120,13 +120,34 @@
   <metadata name="TimerCargador.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Minimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        uwAAAbsBOuzj4gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANnSURBVHhe7Zu7
+        bhNREIbtBMVETqxIvsRKmlSIylIU2dtQ5AXSAC9AQUPFE9DQhTeIRBPRB0EZKaJCgoImTUDiUmEaQJjE
+        awPKYWY3TtbH/673cs4KZSi+wlMk/z+7ey4z5xSUUnZptcqq3d5SjnNfdTrbxBPigDgieiezs6f9UmnY
+        L5e/9SuVj+7S0qtBtbrn1usPfy4vN+DfNAgMZmZjo0aG75DBZ4RLqDCOSUIoMzOqv7DwZVivP1arq9fg
+        /8oIDKZic/MKPem7ZOoF8SdoMgpoHFEsKnpLvg9rtV21tnYVakgBDCbGcW6RmXe6uThAs1M4KZV+DRqN
+        R1BLQmAwNo5zg0y81E0lARmMizs/3xs0m/egtpjA4FTW1+skfk83kwZkLCn9xcXPw5WV61DrFGAwEsdp
+        kfBPupG0IENp6M/N/R42m7eh5ghgMJR2+yaJPtZNZAGZSQ3NGjQ2bEPtIcDgBIVCkZ78AxJ8qhvICjSS
+        EbdaPSDNM9CLBgyOweY7nV1duCmQARO4lcr7OEmAwTH8Jw/FmwCJN4X3JiBPAWDwHP+bN/7aB0HCTTJt
+        TIBBD3+0NzrgIZBoo9DAGDU7wODZPG9sqosCijaMN0WGrBMmAh6GFjlxQIJtwIsl5HUicLa8hWJtgMTa
+        Ai2bx354ZFzbJwUJtQXvHXS/Yz/o6fOuDgq1BRJqE30XeWGe9/Mpt7RZQCJtwlvpYD3hIgF+MQOKtAkS
+        aRuvqDKRAL+SA0XaBAm0DVeWxhPANbwEZSyTIIHWKRbVqMboJ8AvYEKBtoECc8ArtJ4nwK/eQoG2QeLy
+        gKvNfgK4bj+ldG0TJC4XaI/AfQce/beQsLyA4nKCmy/8/XPHBorLAyQsL7gDxd8/t6uguDxAwvKC23Cc
+        AO7VQXFh/NjZUV/3943w9vUbI3x4+hyajIJ7kZwAblRCo2Gw8G63a4TDwyMjcBKQySi4IcsJ4C4tNBrG
+        pUlAqTTkBPR0g9O4LAng1vz/BJAh8Z+A+EFQ/DQofCEkfiksfjMkfjssviDCCRBfEhNfFGVEl8UZ8Y0R
+        8a0xRnRzdITo9jgj/oAEI/qIDCP+kBQj+pjcCNEHJUeIPirLiD8szYg+Lh9E7IWJIKKvzIwQfWkqiNhr
+        czpiL04GEX11Vkfk5ekw/unr86rwFzBuulk0u5wbAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="Battery_healt_extender.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>175, 17</value>
   </metadata>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>308, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Battery_healt_extender.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAGBgAAAEAIACICQAAFgAAACgAAAAYAAAAMAAAAAEAIAAAAAAAAAkAALEAAACxAAAAAAAAAAAA

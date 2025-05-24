@@ -13,7 +13,6 @@ namespace Battery_health_extender.ProgressCustomBar
         Sliding,
         None
     }
-
     class ProgresBarCustom : ProgressBar
     {
         //Fields

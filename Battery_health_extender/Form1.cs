@@ -14,12 +14,16 @@ namespace Battery_health_extender
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
             pbAnimación.Visible = false;
             pbAnimación.Enabled = false;
         }
+       
+        private List<string> Imagenes = new List<string>() { "batRed", "batYellow", "batGreen" };
+        bool error = false;
         Color ColorPorcentaje(int Porcentaje) {
             if (Porcentaje <= 100 && Porcentaje >= 75)
             {
@@ -38,44 +42,77 @@ namespace Battery_health_extender
             }
         }
         public void Bateria() {
-            var estado = typeof(PowerStatus);
-            PropertyInfo[] propiedades = estado.GetProperties();
-            PropertyInfo carga = propiedades[3];
-            object valor = carga.GetValue(SystemInformation.PowerStatus, null);
-            progresBarCustom1.Value = Convert.ToInt32(Convert.ToDecimal(valor)*100);
-            progresBarCustom1.SliderColor = ColorPorcentaje(Convert.ToInt32(Convert.ToDecimal(valor) * 100));
-            PropertyInfo Conectado = propiedades[0];
-            object conexion = Conectado.GetValue(SystemInformation.PowerStatus, null);
-            if (Convert.ToBoolean(conexion) == true)
+            try
             {
-                if (progresBarCustom1.Value == 100) {
-                    Battery_healt_extender.BalloonTipText = "Desconecte el cargador";
-                    Battery_healt_extender.ShowBalloonTip(1000);
+                PowerStatus powerStatus = SystemInformation.PowerStatus;
+                double batteryLifePercent = powerStatus.BatteryLifePercent;
+                int batteryLifeRemaining = powerStatus.BatteryLifeRemaining;
+                int batteryLifeRemainingtoCharge = powerStatus.BatteryFullLifetime;
+                //progresBarCustom1.Value = Convert.ToInt32(Convert.ToDecimal(batteryLifePercent) * 100);
+                //progresBarCustom1.SliderColor = ColorPorcentaje(Convert.ToInt32(Convert.ToDecimal(batteryLifePercent) * 100));
+                PowerLineStatus powerLineStatus = powerStatus.PowerLineStatus;
+                if (powerLineStatus == PowerLineStatus.Online)
+                {
+                    lblEstado.Text = "CARGANDO";
+                    if (progresBarCustom1.Value == 100)
+                    {
+                        Battery_healt_extender.BalloonTipText = "Desconecte el cargador";
+                        Battery_healt_extender.ShowBalloonTip(1000);
+                    }
+                    double tiempo_Horas = Convert.ToDouble(batteryLifeRemaining) / 3600.00;
+                    double tiempo_Minutos = Math.Round(Convert.ToDouble(tiempo_Horas - Math.Truncate(tiempo_Horas)) * (60), 2);
+                    lblTiempo.Text = "Tiempo de carga estimado:" + Convert.ToString(Math.Truncate(tiempo_Horas)) + " horas " + tiempo_Minutos + " minutos";
+                    for (int i = 0; i < 3; i++)
+                    {
+
+                        pbAnimación.Image = Image.FromFile(Application.StartupPath + "//RESOURCES//" + Imagenes[i] + ".png");
+                        pbAnimación.Visible = true;
+                        pbAnimación.Enabled = true;
+                        pbAnimación.Refresh();
+                        System.Threading.Thread.Sleep(1000);
+                    }
+
                 }
-                lblEstado.Text = "CARGANDO";
-                pbAnimación.Image = Image.FromFile(Application.StartupPath + "//Cargando.gif");
-                pbAnimación.Visible = true;
-                pbAnimación.Enabled = true;
+                else
+                {
+                    lblEstado.Text = "NO CARGANDO";
+                    double tiempo_Horas = Convert.ToDouble(batteryLifeRemaining) / 3600.00;
+                    double tiempo_Minutos = Math.Round(Convert.ToDouble(tiempo_Horas - Math.Truncate(tiempo_Horas)) * (60),2);
+                    lblTiempo.Text = "Tiempo de descarga estimado:" + Convert.ToString(Math.Truncate(tiempo_Horas))+" horas "+tiempo_Minutos+" minutos";
+                    for (int i = 2; i >= 0; i--){
+                        pbAnimación.Image = Image.FromFile(Application.StartupPath + "//RESOURCES//" + Imagenes[i] + ".png");
+                        pbAnimación.Visible = true;
+                        pbAnimación.Enabled = true;
+                        pbAnimación.Refresh();
+                        System.Threading.Thread.Sleep(1000);
+
+                    }
+                }
 
             }
-            else {
-                lblEstado.Text = "No Cargando";
-                pbAnimación.Image = Image.FromFile(Application.StartupPath + "//Descargando.gif");
+            catch (Exception ex)
+            {
 
-                pbAnimación.Visible = true;
-                pbAnimación.Enabled = true;
+                error = true;
+                MessageBox.Show(ex.Message);
+                Application.Exit();
             }
-
         }
 
         private void TimerCargador_Tick(object sender, EventArgs e)
         {
-            Bateria();
+            if (!error)
+            {
+                Bateria();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Bateria();
+            if (!error)
+            {
+                Bateria();
+            }
         }
         int m, mx, my;
 
@@ -91,7 +128,8 @@ namespace Battery_health_extender
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
-                Battery_healt_extender.BalloonTipText = "La applicación sera ejecutada en segundo plano";
+                Battery_healt_extender.BalloonTipTitle = lblTiempo.Text;
+                Battery_healt_extender.BalloonTipText = "Recuerde que para tener una batería en óptimas condiciones debe desconectarla al llegar al 100%";
                 Battery_healt_extender.ShowBalloonTip(1000);
             }
             
@@ -114,7 +152,8 @@ namespace Battery_health_extender
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
-                Battery_healt_extender.BalloonTipText = "La applicación sera ejecutada en segundo plano";
+                Battery_healt_extender.BalloonTipTitle = lblTiempo.Text;
+                Battery_healt_extender.BalloonTipText = "Recuerde que para tener una batería en óptimas condiciones debe desconectarla al llegar al 100%";
                 Battery_healt_extender.ShowBalloonTip(1000);
             }
         }
@@ -122,6 +161,12 @@ namespace Battery_health_extender
         private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pbLogo_Click(object sender, EventArgs e)
+        {
+            //FrmSettings frm = new FrmSettings();
+            //frm.ShowDialog();
         }
 
         private void pnBorder_MouseMove(object sender, MouseEventArgs e)
